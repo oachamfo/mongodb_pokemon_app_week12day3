@@ -10,7 +10,8 @@ const mongoose = require("mongoose"); //require mongoose db
 app.set("view engine", "jsx");
 app.engine("jsx", jsxEngine());
 
-//app.use invocations
+//app.use invocations(middleware)
+app.use(express.urlencoded({ extended: false }));
 
 //models
 const pokemon = require("./models/pokemon.js");
@@ -20,11 +21,16 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Pokemon App!");
 });
 
+//INDEX
 app.get("/pokemon", (req, res) => {
   // res.send(pokemon);
   res.render("Index", { pokemon: pokemon });
 });
 
+//SHOW
+app.get("/pokemon/:id", (req, res) => {
+  res.send(req.params.id);
+});
 //listen on port 3000
 app.listen(port, () => {
   console.log("listening");
