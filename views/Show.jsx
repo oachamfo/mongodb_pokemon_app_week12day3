@@ -13,7 +13,7 @@ class Show extends React.Component {
       <div style={myStyle}>
         <h1>See A Pokemon!</h1>
         <ul>
-          <li>The pokemon id: {pokemon_id}</li>
+          <li>The pokemon id: {pokemon_id}. This is the index of an array.</li>
         </ul>
       </div>
     );
