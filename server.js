@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
 
 app.get("/pokemon", (req, res) => {
   // res.send(pokemon);
-  res.render("Index");
+  res.render("Index", { pokemon: pokemon });
 });
 
 //listen on port 3000
