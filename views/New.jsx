@@ -1,5 +1,11 @@
 const React = require("react");
 
+const backStyle = {
+  textDecoration: "none",
+  backgroundColor: "yellow",
+  color: "blue",
+};
+
 class New extends React.Component {
   render() {
     return (
@@ -14,6 +20,13 @@ class New extends React.Component {
           <br></br>
           <input type="submit" name="" value="Create Pokemon" />
         </form>
+        <nav>
+          <h1>
+            <a style={backStyle} href="/pokemon">
+              Go to index page
+            </a>
+          </h1>
+        </nav>
       </div>
     );
   }

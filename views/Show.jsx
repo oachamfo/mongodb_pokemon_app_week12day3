@@ -28,11 +28,13 @@ class Show extends React.Component {
         )}
 
         <br></br>
-        <h1>
-          <a style={backStyle} href="/pokemon">
-            Back
-          </a>
-        </h1>
+        <nav>
+          <h1>
+            <a style={backStyle} href="/pokemon">
+              Go to index page
+            </a>
+          </h1>
+        </nav>
       </div>
     );
   }
