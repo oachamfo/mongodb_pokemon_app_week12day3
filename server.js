@@ -72,6 +72,9 @@ app.get("/pokemon/new", (req, res) => {
 //CREATE
 app.post("/pokemon", async (req, res) => {
   try {
+    //data correction
+    req.body.img =
+      "https://img.pokemondb.net/artwork/" + req.body.name.toLowerCase();
     //store new pokemon in cloud db
     await Pokemon.create(req.body);
     res.redirect("/pokemon");

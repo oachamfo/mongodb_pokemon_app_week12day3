@@ -4,6 +4,11 @@ const myStyle = {
   color: "#ffffff",
   backgroundColor: "#000000",
 };
+const newStyle = {
+  textDecoration: "none",
+  backgroundColor: "yellow",
+  color: "blue",
+};
 
 class Index extends React.Component {
   render() {
@@ -23,6 +28,13 @@ class Index extends React.Component {
             );
           })}
         </ul>
+        <nav>
+          <h1>
+            <a style={newStyle} href="/pokemon/new">
+              Create a New Pokemon
+            </a>
+          </h1>
+        </nav>
       </div>
     );
   }
