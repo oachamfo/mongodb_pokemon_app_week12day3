@@ -6,12 +6,18 @@ const port = 3000;
 const jsxEngine = require("jsx-view-engine"); //require view engine
 const mongoose = require("mongoose"); //require mongoose db
 
+//method-override package: for spoofing HTTP methods
+const methodOverride = require("method-override");
+
 //templating engine for views
 app.set("view engine", "jsx");
 app.engine("jsx", jsxEngine());
 
 //app.use invocations(middleware)
 app.use(express.urlencoded({ extended: false }));
+
+//use methodOverride package for adding a query parameter to the delete form named _method
+app.use(methodOverride("_method"));
 
 //db connection
 //require .env file, without dotenv the syntax process.env.MONGO_URI will not work
@@ -63,6 +69,16 @@ app.get("/pokemon/new", (req, res) => {
     res.render("New");
   } catch {
     console.log("Something went wrong showing New.jsx page");
+  }
+});
+
+//DELETE
+app.delete("/pokemon/:id", async (req, res) => {
+  try {
+    await Pokemon.findByIdAndRemove(req.params.id);
+    res.redirect("/pokemon"); //redirect back to pokemon index
+  } catch (error) {
+    console.log(error);
   }
 });
 
