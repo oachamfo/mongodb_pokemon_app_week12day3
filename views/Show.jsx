@@ -13,7 +13,7 @@ const backStyle = {
 class Show extends React.Component {
   render() {
     const pokemon = this.props.pokemon; //declare a variable as a shorthand for this.props.pokemon
-    const pokemon_id = this.props.id;
+
     return (
       <div style={myStyle}>
         <h1>Gotta Catch 'Em All</h1>
