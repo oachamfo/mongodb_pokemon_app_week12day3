@@ -34,15 +34,7 @@ const { Pokemon, pokemonArray } = require("./models/pokemon.js");
 
 //seed route
 app.get("/pokemon/seed", (req, res) => {
-  Pokemon.create([
-    { name: "bulbasaur", img: "http://img.pokemondb.net/artwork/bulbasaur" },
-    { name: "ivysaur", img: "http://img.pokemondb.net/artwork/ivysaur" },
-    { name: "venusaur", img: "http://img.pokemondb.net/artwork/venusaur" },
-    { name: "charmander", img: "http://img.pokemondb.net/artwork/charmander" },
-    { name: "charizard", img: "http://img.pokemondb.net/artwork/charizard" },
-    { name: "squirtle", img: "http://img.pokemondb.net/artwork/squirtle" },
-    { name: "wartortle", img: "http://img.pokemondb.net/artwork/wartortle" },
-  ])
+  Pokemon.create(pokemonArray)
     .then(res.redirect("/pokemon"))
     .catch((error) => {
       console.log(error);

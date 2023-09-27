@@ -15,6 +15,14 @@ class Index extends React.Component {
     const pokemon = this.props.pokemon;
     return (
       <div style={myStyle}>
+        <nav>
+          <h1>
+            <a style={newStyle} href="/pokemon/new">
+              Create a New Pokemon
+            </a>
+          </h1>
+        </nav>
+
         <h1>See All The Pokemon!</h1>
         <ul>
           {pokemon.map((pokemon, i) => {
@@ -28,13 +36,6 @@ class Index extends React.Component {
             );
           })}
         </ul>
-        <nav>
-          <h1>
-            <a style={newStyle} href="/pokemon/new">
-              Create a New Pokemon
-            </a>
-          </h1>
-        </nav>
       </div>
     );
   }
