@@ -16,6 +16,7 @@ app.use(express.urlencoded({ extended: false }));
 //db connection
 //require .env file, without dotenv the syntax process.env.MONGO_URI will not work
 require("dotenv").config();
+
 //connect to db
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -58,7 +59,11 @@ app.get("/pokemon/", async (req, res) => {
 
 //NEW
 app.get("/pokemon/new", (req, res) => {
-  res.render("New");
+  try {
+    res.render("New");
+  } catch {
+    console.log("Something went wrong showing New.jsx page");
+  }
 });
 
 //CREATE
